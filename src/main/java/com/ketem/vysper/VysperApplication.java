@@ -3,30 +3,32 @@ package com.ketem.vysper;
 
 
 
+
 import org.apache.vysper.mina.TCPEndpoint;
-import org.apache.vysper.storage.OpenStorageProviderRegistry;
 import org.apache.vysper.storage.StorageProviderRegistry;
 import org.apache.vysper.storage.inmemory.MemoryStorageProviderRegistry;
 import org.apache.vysper.xmpp.addressing.Entity;
+import org.apache.vysper.xmpp.addressing.EntityFormatException;
 import org.apache.vysper.xmpp.addressing.EntityImpl;
+import org.apache.vysper.xmpp.authorization.AccountCreationException;
 import org.apache.vysper.xmpp.authorization.AccountManagement;
 import org.apache.vysper.xmpp.modules.extension.xep0049_privatedata.PrivateDataModule;
 import org.apache.vysper.xmpp.modules.extension.xep0054_vcardtemp.VcardTempModule;
 import org.apache.vysper.xmpp.modules.extension.xep0092_software_version.SoftwareVersionModule;
 import org.apache.vysper.xmpp.modules.extension.xep0119_xmppping.XmppPingModule;
 import org.apache.vysper.xmpp.modules.extension.xep0202_entity_time.EntityTimeModule;
-import org.apache.vysper.xmpp.modules.roster.persistence.MemoryRosterManager;
 import org.apache.vysper.xmpp.server.XMPPServer;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 ;import java.io.File;
+import java.io.FileNotFoundException;
 
 @SpringBootApplication
 public class VysperApplication {
 
     private static String serverIsRunning;
 
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args) throws AccountCreationException, EntityFormatException, FileNotFoundException {
      SpringApplication.run(VysperApplication.class, args);
         // choose the storage you want to use
         //StorageProviderRegistry providerRegistry = new JcrStorageProviderRegistry();
