@@ -70,6 +70,8 @@ public class VysperApplication {
         server.addModule(new VcardTempModule());
         server.addModule(new XmppPingModule());
         server.addModule(new PrivateDataModule());
+
+        
     }
 
 
